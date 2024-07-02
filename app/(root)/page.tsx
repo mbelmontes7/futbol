@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+
 export default function Home() {
   return (
     //this is my stle for the background of the landig page
@@ -20,11 +21,11 @@ export default function Home() {
         </h2>
         <div className="mt-8"></div>
         <div className="flex justify-center">
-          {/* <Link href="/dashboard"> */}
-          {/* <Button className="bg-green-600">
+          {/* <Link href="/Onbording"> */}
+            <Button className="bg-green-600">
               Get Started
               <ArrowRight className="ml-2 w-5 h-5" strokeWidth={3} />
-            </Button> */}
+            </Button>
           {/* </Link> */}
         </div>
       </div>
