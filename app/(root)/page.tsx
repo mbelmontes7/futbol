@@ -22,10 +22,10 @@ export default function Home() {
         <div className="mt-8"></div>
         <div className="flex justify-center">
           {/* <Link href="/Onbording"> */}
-            <Button className="bg-green-600">
-              Get Started
-              <ArrowRight className="ml-2 w-5 h-5" strokeWidth={3} />
-            </Button>
+          <Button className="bg-green-600">
+            Get Started
+            <ArrowRight className="ml-2 w-5 h-5" strokeWidth={3} />
+          </Button>
           {/* </Link> */}
         </div>
       </div>
