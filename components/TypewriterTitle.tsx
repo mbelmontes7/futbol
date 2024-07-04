@@ -16,7 +16,7 @@ const TypewriterTitle = (props: Props) => {
                     .typeString("An app for futbol lovers")
                     .pauseFor(1000)
                     .deleteAll()
-                    .typeString("Futbolnet")
+                    .typeString("FutbolNet")
                     .pauseFor(1000)
                     .deleteAll()
                     .typeString("The Beautiful Game  ")
