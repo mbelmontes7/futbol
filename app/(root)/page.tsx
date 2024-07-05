@@ -13,17 +13,17 @@ export default function Home() {
   return (
     <ClerkProvider>
       <SignedIn>
-        <div className="hero bg-teal-100 min-h-screen text-black">
+        <div className="hero bg-teal-100 min-h-screen text-black font-bold">
           <div className="absolute top-4 right-4">
             <UserButton />
           </div>
           <div className="hero-content text-center">
             <div className="max-w-md">
-              <h1 className="text-5xl font-bold">Hello there</h1>
-              <p className="py-6">
-                Thanks for signing in.
+              <h1 className="text-5xl font-bold">Hello there </h1>
+              <p className="py-6 text-li text-2xl">
+                Thanks for signing in and being part of this project!!! 🎉 🫶🏼
               </p>
-              <button className="btn btn-primary" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
+              <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
             </div>
           </div>
         </div>
