@@ -20,10 +20,10 @@ export default function Home() {
           <div className="hero-content text-center">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Hello there </h1>
-              <p className="py-6 text-li text-2xl">
-                Thanks for signing in and being part of this project!!! 🎉 🫶🏼
+              <p className="py-6 text-li text-2xl text-green-600 font-bold">
+                Thank you for joining us and being a part of this exciting project! 🎉🫶🏼
               </p>
-              <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
+              {/* <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button> */}
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
             <h1 className="font-semibold text-3xl text-black">
               <TypewriterTitle />{" "}
-              <span className="text-green-600 font-bold text-2xl">to make friends </span>
+              <span className="text-green-700 font-bold text-2xl">to make friends </span>
             </h1>
           </div>
           {/* Positioned Button on the button of the page but keeping it on the center.. So I added a div with a margin of 36 */}
