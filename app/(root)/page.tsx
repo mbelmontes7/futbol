@@ -23,7 +23,7 @@ export default function Home() {
               <p className="py-6 text-li text-2xl text-green-600 font-bold">
                 Thank you for joining us and being a part of this exciting project! 🎉🫶🏼
               </p>
-              {/* <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button> */}
+              <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
             </div>
           </div>
         </div>
