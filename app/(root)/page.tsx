@@ -13,21 +13,19 @@ export default function Home() {
   return (
     <ClerkProvider>
       <SignedIn>
-        {/* User is signed in */}
-        <div className="flex flex-col justify-center items-center bg-teal-100 from-green-100">
-          <UserButton />
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          Thanks for signing in.
-          <Button
-            className="mt-4"
-            onClick={() => {
-              window.location.href = "/onboarding";
-            }}
-          >
-            Dashboard
-          </Button>
+        <div className="hero bg-teal-100 min-h-screen text-black">
+          <div className="absolute top-4 right-4">
+            <UserButton />
+          </div>
+          <div className="hero-content text-center">
+            <div className="max-w-md">
+              <h1 className="text-5xl font-bold">Hello there</h1>
+              <p className="py-6">
+                Thanks for signing in.
+              </p>
+              <button className="btn btn-primary" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
+            </div>
+          </div>
         </div>
       </SignedIn>
 
@@ -36,7 +34,7 @@ export default function Home() {
         <div className=" bg-gradient-to-r min-h-screen grainy from-green-200 to-teal-100 flex flex-col justify-center items-center relative">
           {/* Centered TypewriterTitle */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 className="font-semibold text-3xl">
+            <h1 className="font-semibold text-3xl text-black">
               <TypewriterTitle />{" "}
               <span className="text-green-600 font-bold text-2xl">to make friends </span>
             </h1>

@@ -3,11 +3,12 @@ import { Button } from '@/components/ui/button'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import React from 'react'
 
+
 type Props = {}
 
 const Onboarding = (props: Props) => {
     return (
-        <div>
+        <div className=" bg-teal-100 from-green-100 min-h-screen">
             <SignedIn>
                 <div>Onboarding</div>
             </SignedIn>
