@@ -16,14 +16,14 @@ export default function Home() {
         <div className="hero bg-teal-100 min-h-screen text-black font-bold">
           <div className="absolute top-4 right-4">
             <UserButton />
-          </div>
+          </div> 
           <div className="hero-content text-center">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Hello there </h1>
               <p className="py-6 text-li text-2xl text-green-600 font-bold">
                 Thank you for joining us and being a part of this exciting project! 🎉🫶🏼
               </p>
-              {/* <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button> */}
+              <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
             </div>
           </div>
         </div>
