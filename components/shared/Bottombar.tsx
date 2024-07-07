@@ -1,8 +1,8 @@
 function Bottombar() {
-  return (
-    <div>
-      <p>Bottombar</p>
-    </div>
-  );
+    return (
+        <div className="text-black absolute bottom-2">
+            <p>Bottombar</p>
+        </div>
+    );
 }
 export default Bottombar;

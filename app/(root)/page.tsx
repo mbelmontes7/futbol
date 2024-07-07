@@ -2,16 +2,16 @@
 import TypewriterTitle from "@/components/TypewriterTitle";
 import { Button } from "@/components/ui/button";
 import {
-
   SignInButton,
   SignedIn,
   SignedOut,
   UserButton
 } from '@clerk/nextjs';
 
+
 export default function Home() {
   return (
-  <div>
+    <div>
       <SignedIn>
         <div className="hero bg-teal-100 min-h-screen text-black font-bold">
           <div className="absolute top-4 right-4">
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </SignedIn>
 
-      {/* <SignedOut> */}
+      <SignedOut>
         {/* This is my hero section */}
         <div className=" bg-gradient-to-r min-h-screen grainy from-green-200 to-teal-100 flex flex-col justify-center items-center relative">
           {/* Centered TypewriterTitle */}
@@ -47,7 +47,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      {/* </SignedOut> */}
+      </SignedOut>
     </div>
   );
 }
