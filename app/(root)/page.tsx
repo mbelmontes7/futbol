@@ -2,7 +2,7 @@
 import TypewriterTitle from "@/components/TypewriterTitle";
 import { Button } from "@/components/ui/button";
 import {
-  ClerkProvider,
+
   SignInButton,
   SignedIn,
   SignedOut,
@@ -11,12 +11,13 @@ import {
 
 export default function Home() {
   return (
-    <ClerkProvider>
+  <div>
       <SignedIn>
         <div className="hero bg-teal-100 min-h-screen text-black font-bold">
           <div className="absolute top-4 right-4">
+            {/* user buttton right here rendering and then send user to onboarding  */}
             <UserButton />
-          </div> 
+          </div>
           <div className="hero-content text-center">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Hello there </h1>
@@ -29,7 +30,7 @@ export default function Home() {
         </div>
       </SignedIn>
 
-      <SignedOut>
+      {/* <SignedOut> */}
         {/* This is my hero section */}
         <div className=" bg-gradient-to-r min-h-screen grainy from-green-200 to-teal-100 flex flex-col justify-center items-center relative">
           {/* Centered TypewriterTitle */}
@@ -46,7 +47,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </SignedOut>
-    </ClerkProvider>
+      {/* </SignedOut> */}
+    </div>
   );
 }
