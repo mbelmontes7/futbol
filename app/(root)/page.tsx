@@ -5,7 +5,8 @@ import {
   SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
+  UserButton,
+
 } from '@clerk/nextjs';
 
 
@@ -14,9 +15,10 @@ export default function Home() {
     <div>
       <SignedIn>
         <div className="hero bg-teal-100 min-h-screen text-black font-bold">
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 right-7 ">
             {/* user buttton right here rendering and then send user to onboarding  */}
-            <UserButton />
+
+            {/* <UserButton /> */}
           </div>
           <div className="hero-content text-center">
             <div className="max-w-md">
@@ -24,6 +26,7 @@ export default function Home() {
               <p className="py-6 text-li text-2xl text-green-600 font-bold">
                 Thank you for joining us and being a part of this exciting project! 🎉🫶🏼
               </p>
+
               <button className="btn btn-outline bg-lime-200 text-black" onClick={() => { window.location.href = "/onboarding" }}>Onboard</button>
             </div>
           </div>
@@ -46,8 +49,11 @@ export default function Home() {
               <SignInButton />
             </Button>
           </div>
+
         </div>
       </SignedOut>
     </div>
+
+
   );
 }

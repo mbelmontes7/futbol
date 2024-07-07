@@ -25,7 +25,9 @@ const Onboarding = (props: Props) => {
                     </Button>
                 </div>
             </SignedOut>
+
         </div>
+
     )
 }
 
