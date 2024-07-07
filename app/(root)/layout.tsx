@@ -34,12 +34,15 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={inter.className}>
+          {/* This is the topbar of the application*/}
           <Topbar />
 
           <main>
             <LeftSideBar />
             {/* This is where is going to be mostly all the application code located*/}
             <section className="main-container">
+
+              {/* //max-w-4xl not sure if i am going to need it later  */}
               <div className="w-full ">
                 {children}
                 <Bottombar />
@@ -47,6 +50,7 @@ export default function RootLayout({
             </section>
             <RightSidebar />
           </main>
+
         </body>
       </html>
     </ClerkProvider>

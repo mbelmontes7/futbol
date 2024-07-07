@@ -1,4 +1,4 @@
-// This is from DaisyUI and TailwindCSS docs, previous one came with NextJS bundle
+// This is from DaisyUI and TailwindCSS docs, previous one came with NextJS
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
   daisyui: {

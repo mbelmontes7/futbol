@@ -35,7 +35,8 @@ export default function RootLayout({
                 {/* //set the language and the body class */}
                 <body className={`${inter.className}
                 `}>
-                    {children}</body>
+                    {children}
+                </body>
             </html>
         </ClerkProvider>
     );
