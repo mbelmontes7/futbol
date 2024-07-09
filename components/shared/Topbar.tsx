@@ -1,37 +1,43 @@
-// This topbar is going to be a navbar
-import Link from "next/link";
+import { OrganizationSwitcher, SignedIn, SignOutButton } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import Image from "next/image";
-import { OrganizationSwitcher, SignOutButton, SignedIn } from "@clerk/nextjs";
+import Link from "next/link";
 
 function Topbar() {
   return (
-    // I started by creating a nav tag and then I added a link tag to the home page 
-    <nav className="topbar relative flex items-center px-4 py-2">
+    <nav className='topbar'>
       <Link href='/' className='flex items-center gap-4'>
-        <Image src='/futbol.svg' alt='logo' width={20} height={20} />
-        <p className='text-heading3-bold text-light-5 text-xl max-xs:hidden'>Futbolnet</p>
+        <Image src='/futbol.svg' alt='logo' width={28} height={28} />
+        <p className='text-heading3-bold text-light-1 max-xs:hidden'>FutbolNet</p>
       </Link>
-      <div className='absolute right-8 flex items-center gap-4'>
+
+      <div className='flex items-center gap-1'>
+        <div className='block md:hidden'>
+          <SignedIn>
+            <SignOutButton>
+              <div className='flex cursor-pointer'>
+                <Image
+                  src='/logout.svg'
+                  alt='logout'
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </SignOutButton>
+          </SignedIn>
+        </div>
+
         <OrganizationSwitcher
           appearance={{
+            baseTheme: dark,
             elements: {
               organizationSwitcherTrigger: "py-2 px-4",
             },
           }}
         />
-        <div className="flex items-center">
-          <SignedIn>
-            <SignOutButton>
-              <div className="flex cursor-pointer ">
-                <Image src='/logout.svg' alt='logout' width={24} height={24} />
-              </div>
-            </SignOutButton>
-          </SignedIn>
-        </div>
       </div>
     </nav>
   );
 }
 
 export default Topbar;
-

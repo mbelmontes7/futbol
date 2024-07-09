@@ -1,14 +1,14 @@
-
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
-import Topbar from "@/components/shared/Topbar";
-import LeftSideBar from "@/components/shared/LeftSidebar";
-import RightSidebar from "@/components/shared/RightSidebar";
+import "../globals.css";
+import LeftSidebar from "@/components/shared/LeftSidebar";
 import Bottombar from "@/components/shared/Bottombar";
-
+import RightSidebar from "@/components/shared/RightSidebar";
+import Topbar from "@/components/shared/Topbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,34 +23,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider
-    // appearance={{
-    //   baseTheme: dark,
-    // }}
+      appearance={{
+        baseTheme: dark,
+      }}
     >
-      <html lang="en">
+      <html lang='en'>
         <body className={inter.className}>
-          {/* This is the topbar of the application*/}
           <Topbar />
 
-          <main>
-            <LeftSideBar />
-            {/* This is where is going to be mostly all the application code located*/}
-            <section className="main-container py-1">
-
-              {/* //max-w-4xl not sure if i am going to need it later  */}
-              <div className="w-full py-2">
-                {children}
-                <Bottombar />
-              </div>
+          <main className='flex flex-row'>
+            <LeftSidebar />
+            <section className='main-container'>
+              <div className='w-full max-w-4xl'>{children}</div>
             </section>
+            {/* @ts-ignore */}
             <RightSidebar />
           </main>
 
+          <Bottombar />
         </body>
       </html>
     </ClerkProvider>
