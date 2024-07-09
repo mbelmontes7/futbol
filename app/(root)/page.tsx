@@ -15,7 +15,7 @@ export default function Home() {
     <div>
       <SignedIn>
         <div className="hero bg-teal-100 min-h-screen text-black font-bold">
-          <div className="absolute top-4 right-7 ">
+          <div className="absolute top-4">
             {/* user buttton right here rendering and then send user to onboarding  */}
 
             {/* <UserButton /> */}
