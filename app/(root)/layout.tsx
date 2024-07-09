@@ -40,10 +40,10 @@ export default function RootLayout({
           <main>
             <LeftSideBar />
             {/* This is where is going to be mostly all the application code located*/}
-            <section className="main-container py-8">
+            <section className="main-container py-1">
 
               {/* //max-w-4xl not sure if i am going to need it later  */}
-              <div className="w-full ">
+              <div className="w-full py-2">
                 {children}
                 <Bottombar />
               </div>
