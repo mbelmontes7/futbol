@@ -39,7 +39,7 @@ const LeftSidebar = () => {
                 height={24}
               />
               {/* //this is the label that is being displayed on the sidebar */}
-              <p className=' text-green-100 max-lg:hidden'>{link.label}</p>
+              <p className=' text-green-200 max-lg:hidden'>{link.label}</p>
             </Link>
           );
         })}

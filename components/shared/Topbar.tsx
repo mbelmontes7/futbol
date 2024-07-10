@@ -8,10 +8,10 @@ function Topbar() {
     <nav className='topbar'>
       <Link href='/' className='flex items-center gap-4'>
         <Image src='/futbol.svg' alt='logo' width={28} height={28} />
-        <p className='text-heading3-bold text-light-1 max-xs:hidden'>FutbolNet</p>
+        <p className='text-heading3-bold text-green-400 max-xs:hidden'>FutbolNet</p>
       </Link>
 
-      <div className='flex items-center gap-1'>
+      <div className='flex items-center gap-1 '>
         <div className='block md:hidden'>
           <SignedIn>
             <SignOutButton>
