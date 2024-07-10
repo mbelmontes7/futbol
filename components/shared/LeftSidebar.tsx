@@ -44,10 +44,11 @@ const LeftSidebar = () => {
           );
         })}
       </div>
-
       <div className='mt-10 px-6'>
-        {/* <SignedIn>
-          <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+        {/* //this is the signout button that is being displayed on the sidebar
+        Do I want this link to go to the sign or page?*/}
+        <SignedIn>
+          <SignOutButton redirectUrl="/sign-in">
             <div className='flex cursor-pointer gap-4 p-4'>
               <Image
                 src='/assets/logout.svg'
@@ -55,11 +56,10 @@ const LeftSidebar = () => {
                 width={24}
                 height={24}
               />
-
-              <p className='text-light-2 max-lg:hidden'>Logout</p>
+              <p className=' text-green-300 text-body-bold  max-lg:hidden'>Logout</p>
             </div>
           </SignOutButton>
-        </SignedIn> */}
+        </SignedIn>
       </div>
     </section>
   );
