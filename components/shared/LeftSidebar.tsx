@@ -1,8 +1,8 @@
 function LeftSideBar() {
   return (
-    <div>
-      HEE;;
-    </div>
+   <section>
+    
+   </section>
   );
 }
 export default LeftSideBar;
