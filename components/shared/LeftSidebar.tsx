@@ -27,9 +27,10 @@ const LeftSidebar = () => {
 
           return (
             <Link
+              //this is where the link is being created and the link is being passed the route and the label
               href={link.route}
               key={link.label}
-              className={`leftsidebar_link ${isActive && "bg-primary-500 "}`}
+              className={`leftsidebar_link ${isActive && " bg-emerald-400 "}`}
             >
               <Image
                 src={link.imgURL}
@@ -37,8 +38,8 @@ const LeftSidebar = () => {
                 width={24}
                 height={24}
               />
-
-              <p className='text-light-1 max-lg:hidden'>{link.label}</p>
+              {/* //this is the label that is being displayed on the sidebar */}
+              <p className=' text-green-100 max-lg:hidden'>{link.label}</p>
             </Link>
           );
         })}
