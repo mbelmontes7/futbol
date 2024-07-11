@@ -35,7 +35,7 @@ export default function RootLayout({
       <html lang='en'>
         <body className={inter.className}>
           <Topbar />
-        {/* //this is the main container that is going to be displayed on the screen  the flex and flex-row is for the Right side bar */}
+          {/* //this is the main container that is going to be displayed on the screen  the flex and flex-row is for the Right side bar */}
           <main className='flex flex-row'>
             <LeftSidebar />
             <section className='main-container'>
