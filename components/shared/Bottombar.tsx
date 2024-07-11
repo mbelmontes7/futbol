@@ -15,6 +15,7 @@ function Bottombar() {
             <div className='bottombar_container'>
                 {sidebarLinks.map((link) => {
                     const isActive =
+                    //if the pathname includes the route and the route is greater than 1 or the pathname is equal to the route
                         (pathname.includes(link.route) && link.route.length > 1) ||
                         pathname === link.route;
 
@@ -30,6 +31,7 @@ function Bottombar() {
                                 alt={link.label}
                                 width={16}
                                 height={16}
+                                //this is the image that is being displayed on the bottom bar
                                 className='object-contain'
                             />
 

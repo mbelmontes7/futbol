@@ -46,7 +46,7 @@ const LeftSidebar = () => {
       </div>
       <div className='mt-10 px-6'>
         {/* //this is the signout button that is being displayed on the sidebar
-        Do I want this link to go to the sign or page?*/}
+        Do I want this link to go*/}
         <SignedIn>
           <SignOutButton redirectUrl="/sign-in">
             <div className='flex cursor-pointer gap-4 p-4'>
