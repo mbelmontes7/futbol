@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 // Import Clerk's currentUser function to get the authenticated user
 import AccountProfile from "@/components/forms/AccountProfile"; // Import the AccountProfile component
 
-// Define an asynchronous function called Page
+
 async function Page() {
   // Fetch the current user asynchronously
   const user = await currentUser();
@@ -21,7 +21,7 @@ async function Page() {
     image: userInfo?.image || user?.imageUrl, // Use userInfo's image or fallback to user's imageUrl
   };
 
-  // Return JSX to render the page
+
   return (
     // Main content of the application
     <main className='mx-auto flex max-w-3xl flex-col justify-start px-10 py-20'>
@@ -37,6 +37,5 @@ async function Page() {
   );
 }
 
-// Export the Page component as the default export
 export default Page;
 
