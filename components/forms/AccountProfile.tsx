@@ -97,6 +97,28 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                         </FormItem>
                     )}
                 />
+                {/* //for the secound field is going to be the name  */}
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem className='flex items-center gap-3 w-full'>
+                            <FormLabel className="text-base-semibold text-light-2">
+                                Name
+
+                            </FormLabel>
+                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                                {/* //input field to add the profile photo */}
+                                <Input
+                                    //react hook works you get the value of the input field and set it to the value of the input field
+                                    type='text'
+                                    className='account-form_input no-focus'
+                                    {...field}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
