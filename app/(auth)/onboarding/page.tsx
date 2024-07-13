@@ -1,4 +1,5 @@
 // import { currentUser } from "@clerk/nextjs";
+import AccountProfile from "@/components/forms/AccountProfile";
 import { redirect } from "next/navigation";
 
 // import { fetchUser } from "@/lib/actions/user.actions";
@@ -29,7 +30,8 @@ async function Page() {
       </p>
       {/* the section of the document for the Acccount profile  */}
       <section className='mt-9 bg-dark-2 p-10'>
-        {/* <AccountProfile user={userData} btnTitle='Continue' /> */}
+      {/* user={userData} btnTitle='Continue' */}
+        <AccountProfile/>
       </section>
     </main>
   );
