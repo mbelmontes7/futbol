@@ -64,10 +64,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                 className='flex flex-col justify-start gap-10'>
                 <FormField
                     control={form.control}
-                    name="profile_photo"
+                    name='profile_photo'
                     render={({ field }) => (
                         <FormItem className='flex items-center gap-4'>
-                            <FormLabel className="account-form-image-label">
+                            <FormLabel className='account-form_image-label'>
                                 {field.value ? (
                                     <Image
                                         src={field.value}
