@@ -15,9 +15,11 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import Image from 'next/image';
 import { ChangeEvent } from 'react';
-//this is the AccountProfile component to make sure the user provide all the necessary information in the correct format
+
+// Define the props interface for the AccountProfile component
 interface Props {
     user: {
         id: string;
@@ -43,8 +45,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             bio: '',
         },
     });
-    //react hook works you get the value of the input field and set it to the value of the input field
+    //is a custom function to handle image upload. It updates the form state when a new image is selected.
     const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
+        //to update the form state with the new value of the input field.
         e.preventDefault();
     };
 
@@ -119,7 +122,49 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <FormField
+                    control={form.control}
+                    name="username"
+                    render={({ field }) => (
+                        <FormItem className='flex items-center gap-3 w-full'>
+                            <FormLabel className="text-base-semibold text-light-2">
+                                username
+
+                            </FormLabel>
+                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                                {/* //input field to add the profile photo */}
+                                <Input
+                                    //react hook works you get the value of the input field and set it to the value of the input field
+                                    type='text'
+                                    className='account-form_input no-focus'
+                                    {...field}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="bio"
+                    render={({ field }) => (
+                        <FormItem className='flex items-center gap-3 w-full'>
+                            <FormLabel className="text-base-semibold text-light-2">
+                                Bio
+
+                            </FormLabel>
+                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                                {/* //input field to add the profile photo */}
+                                <Textarea
+                                    //react hook works you get the value of the input field and set it to the value of the input field
+                                    rows={10}
+                                    className='account-form_input no-focus'
+                                    {...field}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
+                <Button type="submit" className='bg-green-300'>Submit</Button>
             </form>
         </Form>
     )

@@ -1,3 +1,7 @@
+// zod is a lib that Is responsible for validating the 
+// form data that the user inputs when 
+// completing their profile. 
+
 import * as z from "zod";
 
 export const UserValidation = z.object({
