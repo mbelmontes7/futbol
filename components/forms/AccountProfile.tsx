@@ -1,23 +1,29 @@
-"use client"
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { UserValidation } from '@/lib/validations/user';
-import * as z from 'zod';
-import { Button } from "@/components/ui/button"
+import * as z from "zod";
+import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { usePathname, useRouter } from "next/navigation";
+import { ChangeEvent, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import Image from 'next/image';
-import { ChangeEvent, useState } from 'react';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+
+import { useUploadThing } from "@/lib/uploadthing";
+import { isBase64Image } from "@/lib/utils";
+
+import { UserValidation } from "@/lib/validations/user";
+
 
 // Define the props interface for the AccountProfile component
 interface Props {
@@ -37,6 +43,7 @@ interface Props {
 const AccountProfile = ({ user, btnTitle }: Props) => {
     //an array of files to store the selected image files
     const [files, setFiles] = useState<File[]>([]);
+    const { startUpload } = useUploadThing("media");
 
     //initialize the form using the useForm hook
     const form = useForm({
@@ -49,6 +56,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             bio: user?.bio || '',
         },
     });
+
+
+
     //is a custom function to handle image upload. This function takes two arguments: the event object and a function to set the value of the field.
     //Also the reason to use this function is to handle the image upload and set the value of the field to the image URL.
     const handleImage = (
@@ -62,7 +72,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         //make a check to see if the file is an image file
         if (e.target.files && e.target.files.length > 0) {
             const file = e.target.files[0];
-            //set the files to the array of files
+            //set the files to the array of files 
             setFiles(Array.from(e.target.files));
 
             if (!file.type.includes("image")) return;
@@ -70,17 +80,44 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             //read the file as a data URL
             fileReader.onload = async (event) => {
                 const imageDataUrl = event.target?.result?.toString() || "";
+                //set the value of the field to the image URL
+                //react hook works you get the value of the input field and set it to the value of the input field
                 fieldChange(imageDataUrl);
             };
 
             fileReader.readAsDataURL(file);
         }
     };
-
-    //function to handle the form submission and validate the form is coming from the file 
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
+        //get the pathname from the router object
         const blob = values.profile_photo;
-    }
+        //check if the image has changed is cpming from the isBase64Image function
+        const hasImageChanged = isBase64Image(blob);
+        if (hasImageChanged) {
+            const imgRes = await startUpload(files);
+
+            //check if the image response has a URL and set the value of the profile photo to the URL?! 
+            if (imgRes && imgRes[0].url) {
+                values.profile_photo = imgRes[0].url;
+            }
+        }
+
+        // await updateUser({
+        //     name: values.name,
+        //     path: pathname,
+        //     username: values.username,
+        //     userId: user.id,
+        //     bio: values.bio,
+        //     image: values.profile_photo,
+        // });
+
+        // if (pathname === "/profile/edit") {
+        //     router.back();
+        // } else {
+        //     router.push("/");
+        // }
+    };
+
 
 
     return (
