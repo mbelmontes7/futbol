@@ -67,6 +67,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     name='profile_photo'
                     render={({ field }) => (
                         <FormItem className='flex items-center gap-4'>
+                            {/* this image is for the user profile icon  */}
                             <FormLabel className='account-form_image-label'>
                                 {field.value ? (
                                     <Image
@@ -105,12 +106,12 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                        <FormItem className='flex items-center gap-3 w-full'>
+                        <FormItem className='flex flex-col w-full gap-3'>
                             <FormLabel className="text-base-semibold text-light-2">
                                 Name
 
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl >
                                 {/* //input field to add the profile photo */}
                                 <Input
                                     //react hook works you get the value of the input field and set it to the value of the input field
@@ -126,12 +127,12 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     control={form.control}
                     name="username"
                     render={({ field }) => (
-                        <FormItem className='flex items-center gap-3 w-full'>
+                        <FormItem className='flex flex-col w-full gap-3'>
                             <FormLabel className="text-base-semibold text-light-2">
-                                username
+                                Username
 
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl >
                                 {/* //input field to add the profile photo */}
                                 <Input
                                     //react hook works you get the value of the input field and set it to the value of the input field
@@ -147,12 +148,12 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     control={form.control}
                     name="bio"
                     render={({ field }) => (
-                        <FormItem className='flex items-center gap-3 w-full'>
+                        //the flex-col is to make the form field to be in a column for the bio field as well as the other fields
+                        <FormItem className='flex flex-col w-full gap-3'>
                             <FormLabel className="text-base-semibold text-light-2">
                                 Bio
-
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl >
                                 {/* //input field to add the profile photo */}
                                 <Textarea
                                     //react hook works you get the value of the input field and set it to the value of the input field
