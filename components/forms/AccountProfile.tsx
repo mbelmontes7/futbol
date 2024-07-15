@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Image from 'next/image';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 // Define the props interface for the AccountProfile component
 interface Props {
@@ -35,20 +35,46 @@ interface Props {
 
 
 const AccountProfile = ({ user, btnTitle }: Props) => {
+    //an array of files to store the selected image files
+    const [files, setFiles] = useState<File[]>([]);
+
     //initialize the form using the useForm hook
     const form = useForm({
+        //the resolver is used to validate the form fields using the zod schema automatically when the form is submitted.
         resolver: zodResolver(UserValidation),
         defaultValues: {
-            profile_photo: '',
-            name: '',
-            username: '',
-            bio: '',
+            profile_photo: user?.image || '',
+            name: user?.name || '',
+            username: user?.username || '',
+            bio: user?.bio || '',
         },
     });
-    //is a custom function to handle image upload. It updates the form state when a new image is selected.
-    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
-        //to update the form state with the new value of the input field.
+    //is a custom function to handle image upload. This function takes two arguments: the event object and a function to set the value of the field.
+    //Also the reason to use this function is to handle the image upload and set the value of the field to the image URL.
+    const handleImage = (
+        //the event object is passed to the function to get the selected file
+        e: ChangeEvent<HTMLInputElement>,
+        fieldChange: (value: string) => void
+    ) => {
         e.preventDefault();
+
+        const fileReader = new FileReader();
+        //make a check to see if the file is an image file
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            //set the files to the array of files
+            setFiles(Array.from(e.target.files));
+
+            if (!file.type.includes("image")) return;
+
+            //read the file as a data URL
+            fileReader.onload = async (event) => {
+                const imageDataUrl = event.target?.result?.toString() || "";
+                fieldChange(imageDataUrl);
+            };
+
+            fileReader.readAsDataURL(file);
+        }
     };
 
     //function to handle the form submission and validate the form is coming from the file 
