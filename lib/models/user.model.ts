@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+//this is the schema for the User model in the database
 
 const userSchema = new mongoose.Schema({
     // Define the schema for the User model
