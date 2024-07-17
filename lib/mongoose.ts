@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-let isConnected = false; // Variable to track the connection status
+let isConnected = false; // Variable to track the connection status to MongoDB
 
 export const connectToDB = async () => {
     // Set strict query mode for Mongoose to prevent unknown field queries.
@@ -15,6 +15,7 @@ export const connectToDB = async () => {
     }
 
     try {
+        // Connect to MongoDB
         await mongoose.connect(process.env.MONGODB_URL);
 
         isConnected = true; // Set the connection status to true
