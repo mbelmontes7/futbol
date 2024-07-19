@@ -23,6 +23,7 @@ import { useUploadThing } from "@/lib/uploadthing";
 import { isBase64Image } from "@/lib/utils";
 
 import { UserValidation } from "@/lib/validations/user";
+import { updateUser } from "@/lib/actions/user.actions";
 
 
 // Define the props interface for the AccountProfile component
@@ -44,6 +45,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     //an array of files to store the selected image files
     const [files, setFiles] = useState<File[]>([]);
     const { startUpload } = useUploadThing("media");
+    const router = useRouter();
+    const pathname = usePathname();
 
     //initialize the form using the useForm hook
     const form = useForm({
@@ -56,6 +59,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             bio: user?.bio || '',
         },
     });
+
+
 
 
 
@@ -101,23 +106,24 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                 values.profile_photo = imgRes[0].url;
             }
         }
-
-        // await updateUser({
-        //     name: values.name,
-        //     path: pathname,
-        //     username: values.username,
-        //     userId: user.id,
-        //     bio: values.bio,
-        //     image: values.profile_photo,
-        // });
-
-        // if (pathname === "/profile/edit") {
-        //     router.back();
-        // } else {
-        //     router.push("/");
-        // }
+        //calling the updateUser function to update the user profile
+        await updateUser({
+        //Instead of passing individual arguments, an object is created and passed as a single argument.
+            name: values.name,
+            path: pathname,
+            username: values.username,
+            userId: user.id,
+            bio: values.bio,
+            image: values.profile_photo,
+        });
+        //if the pathname is /profile/edit, the user is redirected to the previous page using the router.back() method. Otherwise, the user is redirected to the home page using the router.push() method.
+        if (pathname === "/profile/edit") {
+            router.back();
+        } else {
+            //redirect the user to the home page
+            router.push("/");
+        }
     };
-
 
 
     return (
