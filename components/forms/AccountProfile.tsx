@@ -108,7 +108,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         }
         //calling the updateUser function to update the user profile
         await updateUser({
-        //Instead of passing individual arguments, an object is created and passed as a single argument.
+            //Instead of passing individual arguments, an object is created and passed as a single argument.
             name: values.name,
             path: pathname,
             username: values.username,
