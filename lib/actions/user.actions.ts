@@ -37,12 +37,12 @@ export async function updateUser({
                 image,
                 onboarded: true,
             },
-            //upsert is set to true to create a new user if it doesn't exist
+            //upsert is a combination of update and insert which means if the user is not found it will create a new user (for example if the user is not found in the database)
             { upsert: true }
         );
 
         if (path === "/profile/edit") {
-            // Revalidate the user's profile page
+            // Revalidate the user's profile page this is useful when the user updates their profile
             revalidatePath(path);
         }
     } catch (error: any) {
