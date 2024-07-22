@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         icon: "/futbol.svg",
     }
 };
-
+//here we are using the ClerkProvider to provide the dark theme to the app
 export default function RootLayout({
     children,
 }: {
