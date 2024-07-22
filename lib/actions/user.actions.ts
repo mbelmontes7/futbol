@@ -15,7 +15,7 @@ interface Params {
     image: string;
     path: string;
 }
-// Define the updateUser function
+// Define the updateUser function a function is like a recipe that takes in ingredients and produces a result
 export async function updateUser({
     userId,
     bio,
@@ -26,8 +26,10 @@ export async function updateUser({
 }: Params): Promise<void> {
     connectToDB();
     try {
+        //passing parameters to the User model
         await User.findOneAndUpdate(
             { id: userId },
+            //applying the changes to the user modelb 
             {
                 username: username.toLowerCase(),
                 name,
