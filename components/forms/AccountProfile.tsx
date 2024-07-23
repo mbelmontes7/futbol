@@ -25,8 +25,7 @@ import { isBase64Image } from "@/lib/utils";
 import { UserValidation } from "@/lib/validations/user";
 import { updateUser } from "@/lib/actions/user.actions";
 
-
-// Define the props interface for the AccountProfile component
+//The Props interface is used to define the type of the props object.
 interface Props {
     user: {
         id: string;
