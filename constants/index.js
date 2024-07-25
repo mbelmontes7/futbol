@@ -1,3 +1,4 @@
+//this is a file that contains all the constants used in the app which means is an array of objects that contains the data that is used in the app
 export const sidebarLinks = [
     {
         imgURL: "/assets/home.svg",
