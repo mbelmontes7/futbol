@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 import { ThreadValidation } from "@/lib/validations/thread";
+import { createThread } from "@/lib/actions/thread.actions";
 // import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {
@@ -39,7 +40,10 @@ function PostThread({ userId }: Props) {
     },
   });
 
+  // Define the onSubmit function
+  //the createThread function is being called here coming from the thread.actions file
   // const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+  //   //pass all the values to the createThread function
   //   await createThread({
   //     text: values.thread,
   //     author: userId,
