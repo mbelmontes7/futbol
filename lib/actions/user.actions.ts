@@ -15,6 +15,7 @@ interface Params {
     image: string;
     path: string;
 }
+//so that we can update the user's profile
 // Define the updateUser function a function is like a recipe that takes in ingredients and produces a result
 export async function updateUser({
     userId,
@@ -50,11 +51,11 @@ export async function updateUser({
     }
 }
 
-export async function fetchUser(userId: string){
+export async function fetchUser(userId: string) {
     try {
         connectToDB();
         return await User
-        .findOne({ id: userId })
+            .findOne({ id: userId })
         // .populate({
         //     path: "communities",
         //     model: "Community",
@@ -64,7 +65,7 @@ export async function fetchUser(userId: string){
 
 
         //fetch the user from the database
-    } catch (error:any) {
+    } catch (error: any) {
         throw new Error(`Failed to fetch user: ${error.message}`);
-}
+    }
 }
