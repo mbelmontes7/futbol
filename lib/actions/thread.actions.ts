@@ -24,3 +24,10 @@ export async function createThread({ text, author, communityId, path }: Params) 
     })
     revalidatePath(path);
 }
+//fetch the posts 
+export async function fetchPosts(pageNumber =1, pageSize = 20) {
+    //establish a connection to the database
+    connectToDB();
+    //Fetch the posts from the database adn that have no parents 
+    const postQuery = Thread.find()
+}
