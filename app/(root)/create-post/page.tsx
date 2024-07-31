@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 async function Page() {
     const user = await currentUser();
-//if we are not logged in, redirect to login page
+    //if we are not logged in, redirect to login page
     if (!user) return null;
 
     // fetch organization list created by user
