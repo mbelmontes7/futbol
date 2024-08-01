@@ -64,6 +64,6 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     This code helps you:*/
 
 // Count all the main posts (those without a parent).
-// Get a specific set of these main posts.
+// Get a specific set of these main posts
 // Check if there are more main posts left to be fetched after the current set.
 // Return the current set of posts and information about whether more posts are available.
