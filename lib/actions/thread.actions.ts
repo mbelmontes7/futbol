@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import Thread from "../models/thread.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose"
+import { skip } from "node:test";
 
 interface Params {
     text: string,
@@ -32,7 +33,9 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     const skipAmount = pageSize * (pageNumber - 1);
 
     //Fetch the posts from the database adn that have no parents 
+    
     const postQuery = Thread.find({ parentId: { $in: [null, undefined] } })
+   
         .sort({ createdAt: 'desc' })
         .skip(skipAmount)
         .limit(pageSize)
@@ -43,6 +46,24 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
                 path: 'author', model: 'User',
                 select: "_id name parentId image"
             }
-
         })
+    const totalPosts = await Thread.countDocuments({
+        parentId: {
+            $in:
+                [null, undefined]
+        }
+    });
+    const posts = await postQuery.exec();
+
+    const isNextPage = totalPosts > skipAmount + posts.length;
+    return { posts, isNextPage };
 }
+
+ /*Imagine you have a list of posts, some of 
+    which might be replies (children) to other posts (parents). 
+    This code helps you:*/
+
+// Count all the main posts (those without a parent).
+// Get a specific set of these main posts.
+// Check if there are more main posts left to be fetched after the current set.
+// Return the current set of posts and information about whether more posts are available.
