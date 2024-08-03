@@ -41,8 +41,9 @@ const ThreadCard = ({
     isComment,
 }: Props) => {
     return (
-        <article>
-            <h2 className="text-small-regular text-light-2">
+        <article className="flex w-full flex-col rounded-xl bg-lime-100 p-7">
+            
+            <h2 className="text-small-regular text-black">
                 {content}
             </h2>
         </article>
