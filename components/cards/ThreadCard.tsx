@@ -84,7 +84,6 @@ const ThreadCard = ({
                             className='cursor-pointer object-contain'
                         />
                     </Link>
-                    {/* //this is the share icon */}
                     <Image
                         src='/assets/repost.svg'
                         alt='heart'
