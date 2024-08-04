@@ -55,7 +55,14 @@ const ThreadCard = ({
             </Link>
             {/* //created space for the user name */}
             <div className='thread-card_bar' />
-
+            <div className='flex w-full flex-col'>
+                {/* this is the user uname of the bottom of the comment  */}
+                <Link href={`/profile/${author.id}`} className='w-fit'>
+                    <h4 className='cursor-pointer text-base-medium text-green-500å'>
+                        {author.name}
+                    </h4>
+                </Link>
+            </div>
 
 
 
