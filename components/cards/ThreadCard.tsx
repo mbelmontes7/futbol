@@ -65,6 +65,7 @@ const ThreadCard = ({
             </div>
             {/* //Render the content of the post */}
             <p className='mt-2 text-base-medium text-green-800'>{content}</p>
+            {/* //inside of this is going to have all the social media icons  */}
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}></div>
             <div className='flex gap-3.5'>
                 <Image
