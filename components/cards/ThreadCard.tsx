@@ -41,7 +41,7 @@ const ThreadCard = ({
     isComment,
 }: Props) => {
     return (
-        <article className="flex w-full flex-col rounded-xl bg-green-300 p-7">
+        <article className="flex w-full flex-col rounded-xl bg-zinc-900 p-7">
             <div className="flex items-start justify-between"></div>
             <div className="flex w-full flex-1 flex-grow gap-4"></div>
             {/* //this is the image of the user is going to be when the user post a comment on the social media */}
@@ -58,24 +58,59 @@ const ThreadCard = ({
             <div className='flex w-full flex-col'>
                 {/* this is the user uname of the bottom of the comment  */}
                 <Link href={`/profile/${author.id}`} className='w-fit'>
-                    <h4 className='cursor-pointer text-base-medium text-green-500å'>
+                    <h4 className='cursor-pointer text-base-medium text-green-100 m-1'>
                         {author.name}
                     </h4>
                 </Link>
             </div>
             {/* //Render the content of the post */}
-            <p className='mt-2 text-base-medium text-green-800'>{content}</p>
-            {/* //inside of this is going to have all the social media icons  */}
-            <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}></div>
-            <div className='flex gap-3.5'>
-                <Image
-                    src='/assets/heart-gray.svg'
-                    alt='heart'
-                    width={24}
-                    height={24}
-                    className='cursor-pointer object-contain'
-                />
+            <p className='mt-2 text-body-semibold text-green-200'>{content}</p>
+            {/* //Render the community image  here are all my icons for the app that it can see the user */}
+            <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
+                <div className='flex gap-3.5'>
+                    <Image
+                        src='/assets/heart-gray.svg'
+                        alt='heart'
+                        width={24}
+                        height={24}
+                        className='cursor-pointer object-contain'
+                    />
+                    <Link href={`/thread/${id}`}>
+                        <Image
+                            src='/assets/reply.svg'
+                            alt='heart'
+                            width={24}
+                            height={24}
+                            className='cursor-pointer object-contain'
+                        />
+                    </Link>
+                    {/* //this is the share icon */}
+                    <Image
+                        src='/assets/repost.svg'
+                        alt='heart'
+                        width={24}
+                        height={24}
+                        className='cursor-pointer object-contain'
+                    />
+                    <Image
+                        src='/assets/share.svg'
+                        alt='heart'
+                        width={24}
+                        height={24}
+                        className='cursor-pointer object-contain'
+                    />
+                    {isComment && comments.length > 0 && (
+                        <Link href={`/thread/${id}`}>
+                            <p className='mt-1 text-subtle-medium text-gray-1'>
+                                {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                            </p>
+                        </Link>
+                    )}
+                </div>
             </div>
+
+
+
 
 
 
