@@ -63,14 +63,27 @@ const ThreadCard = ({
                     </h4>
                 </Link>
             </div>
+            {/* //Render the content of the post */}
+            <p className='mt-2 text-base-medium text-green-800'>{content}</p>
+            <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}></div>
+            <div className='flex gap-3.5'>
+                <Image
+                    src='/assets/heart-gray.svg'
+                    alt='heart'
+                    width={24}
+                    height={24}
+                    className='cursor-pointer object-contain'
+                />
+            </div>
 
 
 
 
 
-            <h2 className="text-small-regular text-black">
-                {content}
-            </h2>
+
+
+
+
         </article>
     )
 }
