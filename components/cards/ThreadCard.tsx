@@ -53,7 +53,7 @@ const ThreadCard = ({
                     className='cursor-pointer rounded-full'
                 />
             </Link>
-            {/* //created space for the user name */}
+            {/* //created space for the card space and is render from the file of the globals.cs */}
             <div className='thread-card_bar' />
             <div className='flex w-full flex-col'>
                 {/* this is the user uname of the bottom of the comment  */}
@@ -75,6 +75,7 @@ const ThreadCard = ({
                         height={24}
                         className='cursor-pointer object-contain'
                     />
+                    {/* //this is the reply icon for the user to reply to the post */}
                     <Link href={`/thread/${id}`}>
                         <Image
                             src='/assets/reply.svg'
