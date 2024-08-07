@@ -33,9 +33,9 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     const skipAmount = pageSize * (pageNumber - 1);
 
     //Fetch the posts from the database adn that have no parents 
-    
+
     const postQuery = Thread.find({ parentId: { $in: [null, undefined] } })
-   
+
         .sort({ createdAt: 'desc' })
         .skip(skipAmount)
         .limit(pageSize)
@@ -58,12 +58,49 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     const isNextPage = totalPosts > skipAmount + posts.length;
     return { posts, isNextPage };
 }
+//this is coming for thr thread id where you can see more about the post 
+export async function fetchThreadById(threadId: string) {
+    connectToDB();
 
- /*Imagine you have a list of posts, some of 
-    which might be replies (children) to other posts (parents). 
-    This code helps you:*/
+    try {
+        const thread = await Thread.findById(threadId)
+            .populate({
+                path: "author",
+                model: User,
+                select: "_id id name image",
+            }) // Populate the author field with _id and username
+            .populate({
+                path: "community",
+                //   model: Community,
+                select: "_id id name image",
+            }) // Populate the community field with _id and name
+            .populate({
+                path: "children", // Populate the children field
+                populate: [
+                    {
+                        path: "author", // Populate the author field within children
+                        model: User,
+                        select: "_id id name parentId image", // Select only _id and username fields of the author
+                    },
+                    {
+                        path: "children", // Populate the children field within children
+                        model: Thread, // The model of the nested children (assuming it's the same "Thread" model)
+                        populate: {
+                            path: "author", // Populate the author field within nested children
+                            model: User,
+                            select: "_id id name parentId image", // Select only _id and username fields of the author
+                        },
+                    },
+                ],
+            })
+            // Execute the query
+            .exec();
 
-// Count all the main posts (those without a parent).
-// Get a specific set of these main posts
-// Check if there are more main posts left to be fetched after the current set.
-// Return the current set of posts and information about whether more posts are available.
+        return thread;
+    } catch (err) {
+        console.error("Error while fetching thread:", err);
+        throw new Error("Unable to fetch thread");
+    }
+}
+//this is the function that is going to add a comment to the thread
+
