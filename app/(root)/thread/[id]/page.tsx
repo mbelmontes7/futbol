@@ -3,7 +3,8 @@ import ThreadCard from "@/components/cards/ThreadCard";
 import { redirect } from "next/navigation";
 import { fetchThreadById } from "@/lib/actions/thread.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
-
+//this is the page that will display the thread 
+//Route parameters refer to the variable parts of a URL segment
 const Page = async ({ params }: { params: { id: string } }) => {
     if (!params.id) return null
 
