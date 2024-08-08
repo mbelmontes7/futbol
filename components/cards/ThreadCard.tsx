@@ -120,6 +120,7 @@ const ThreadCard = ({
                                 {/* // part of the comment section for a user. It conditionally renders a link to the post  if there are comments to */}
                                 {isComment && comments.length > 0 && (
                                     <Link href={`/thread/${id}`}>
+                                        {/* //this is the comment section for the user to see the comments on the post */}
                                         <p className='mt-1 text-subtle-medium text-gray-1'>
                                             {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                                         </p>
